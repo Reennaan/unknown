@@ -21,12 +21,11 @@ window.onload = function test(){
 
 }
 
-// Função para mostrar o snackbar
+
 function showSnackbar() {
     const snackbar = document.getElementById("snackbar");
-    snackbar.className = "snackbar show"; // Adiciona a classe para exibir o snackbar
+    snackbar.className = "snackbar show"; 
 
-    // Depois de 3 segundos (tempo da animação), remove a classe para esconder
     setTimeout(function() {
         snackbar.className = snackbar.className.replace("show", "");
     }, 3000);

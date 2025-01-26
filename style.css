@@ -1,6 +1,7 @@
 
 :root{
     --primary: #f5eee4;
+    --font-primary: "RussianGothic", "MS UI Gothic", "NEC_APC3", Tahoma;
 }
 
 
@@ -68,11 +69,31 @@
 }
 
 #sumary{
-    height: 25rem;
+    height: 11rem;
+    text-align: start;
+    padding: 1.25rem;
+    font-weight: bold;
 }
 #something{
     width: 135%;
 }
+
+#status{
+    text-align: start;
+    padding-top: 9rem;
+    padding-left: 1.25rem;
+}
+
+#admines{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    z-index: 1;
+}
+
+
+
 #title{
     font-family: 'WildBreathOfZelda';
     z-index: 3;
@@ -99,14 +120,14 @@
 }
 
 
-/* Estilo básico do snackbar */
+
 .snackbar {
-    visibility: hidden; /* Inicialmente invisível */
+    visibility: hidden;
     width: 20rem;
-    background-color: transparent; /* Fundo transparente */
+    background-color: transparent; 
     z-index: 1;
     position: fixed;
-    bottom: 30px; /* Posição na parte inferior */
+    bottom: 30px; 
     left: 40%;
      
   
