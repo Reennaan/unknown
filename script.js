@@ -26,10 +26,8 @@ window.onload = function test(){
         throw new Error("What's the point of anything?")
     }
     
-    
-    // All configuration options are optional.
     const webamp = new Webamp({
-      // Optional.
+      
       initialTracks: [{
         metaData: {
           artist: "Final Fantasy IX",
@@ -42,12 +40,17 @@ window.onload = function test(){
         url: "sounds/fairy-battle.mp3"
       }],
       initialSkin: {
-        url: "img/DJ_LAIN_Serial_ExP_2.wsz"
+        url: "img/Lain_Open_the_Next.wsz"
       },
     });
     
     webamp.renderWhenReady(document.getElementById('winamp-container'));
+    webamp.appendTracks([
+      {url: 'sounds/into-the-depths-catacombs.mp3'},
+      {url: 'sounds/fallen-down.mp3'},
+    ]);
 
+    weekAlbuns();
 
 }
 
@@ -59,6 +62,18 @@ function showSnackbar() {
     setTimeout(function() {
         snackbar.className = snackbar.className.replace("show", "");
     }, 3000);
+}
+
+async function  weekAlbuns(){
+  
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const targetUrl = "https://www.last.fm/pt/user/Shalashaska-";
+
+  const response = await fetch(proxyUrl + targetUrl);
+  const html = await response.text();
+
+  console.log(html);
+
 }
 
 
