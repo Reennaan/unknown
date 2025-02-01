@@ -67,12 +67,13 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     user-select: none;
     pointer-events: none;
     top:0;
     left: 0;
     width: 100%;
+   
     
 }
 #overlay {
@@ -184,6 +185,15 @@
     padding-top: 10px;
     margin-right: 53%;
 }
+
+#last-week{
+    width: 80%;
+    height: 240px;
+    margin-left: 8%;
+    margin-top: 7%;
+}
+
+
 
 
 .snackbar {

@@ -55,18 +55,7 @@ window.onload = function test(){
       {url: 'sounds/fallen-down.mp3'},
     ]);
 
-    webamp.renderWhenReady(() => {
-      // Aqui a renderização está pronta
-    
-      // Pegando o elemento principal da janela do Webamp
-      const mainWindow = document.querySelector('#main-window');
-      console.log(mainWindow); // Aqui você pode interagir com o elemento principal
-    
-      // Exemplo de alterar o estilo
-      if (mainWindow) {
-        mainWindow.style.width = '500px'; // Ajustando a largura
-      }
-    });
+
 
     
     
@@ -87,13 +76,15 @@ function showSnackbar() {
 
 async function  weekAlbuns(){
   
-  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-  const targetUrl = "https://www.last.fm/pt/user/Shalashaska-";
+  const urlAlbuns = "https://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=Shalashaska-&api_key=0929ed3fd3c3e7b2319317afda26a1cc&format=json"
 
-  const response = await fetch(proxyUrl + targetUrl);
-  const html = await response.text();
-
-  console.log(html);
+  fetch(urlAlbuns).then(response =>{
+    return response.json();
+  }).then(data =>{
+    console.log(data);
+  }).catch(error =>{
+    console.error("deu ruim");
+  })
 
 }
 
