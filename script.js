@@ -42,6 +42,11 @@ window.onload = function test(){
       initialSkin: {
         url: "img/Lain_Open_the_Next.wsz"
       },
+      initialDimensions: {
+        width: 200,  // Largura da janela
+        height: 150  // Altura da janela
+    }
+
     });
     
     webamp.renderWhenReady(document.getElementById('winamp-container'));
@@ -49,6 +54,22 @@ window.onload = function test(){
       {url: 'sounds/into-the-depths-catacombs.mp3'},
       {url: 'sounds/fallen-down.mp3'},
     ]);
+
+    webamp.renderWhenReady(() => {
+      // Aqui a renderização está pronta
+    
+      // Pegando o elemento principal da janela do Webamp
+      const mainWindow = document.querySelector('#main-window');
+      console.log(mainWindow); // Aqui você pode interagir com o elemento principal
+    
+      // Exemplo de alterar o estilo
+      if (mainWindow) {
+        mainWindow.style.width = '500px'; // Ajustando a largura
+      }
+    });
+
+    
+    
 
     weekAlbuns();
 

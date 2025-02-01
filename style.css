@@ -28,29 +28,9 @@
 
 
 
-#background{
-    z-index: -1;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    user-select: none;
-    pointer-events: none;
-    top:0;
-    left: 0;
-    width: 100%;
-    
-}
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.363); 
-    z-index: 0; 
-    display: block; 
-}
+
+
+
 
 
   .content-column {
@@ -82,23 +62,42 @@
     justify-content: flex-end;
 }
 
+#background{
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    user-select: none;
+    pointer-events: none;
+    top:0;
+    left: 0;
+    width: 100%;
+    
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.363); 
+    z-index: 0; 
+    display: block; 
+}
+
+
 #sumary{
-    height: 11rem;
+    height: 15rem;
     text-align: start;
     padding: 1.25rem;
     font-weight: bold;
 }
-#something{
-    width: 135%;
-}
 
-#status{
-    text-align: start;
-    padding-top: 9rem;
-    padding-left: 1.25rem;
-}
+
+
 #me{
-    width: 150px;
+    width: 9.375rem;
 }
 
 
@@ -127,40 +126,58 @@
     transform: scale(1.1); 
 }
 
-#status-container{
-    display: flex;
-    flex-direction: row;
-}
-
-#admines {
+#status-container {
     position: absolute;
     display: flex;
-    width: min(25vw, 20.625rem); /* Se ajusta entre 25% da tela e 20.625rem */
+    flex-direction: column;
+    top: -7%;
+    right: 90%;
+    width: min(40vw, 25rem);
+    height: auto; 
+    max-width: 90%; 
+    padding: 1.25rem;
+    box-sizing: border-box; 
+    z-index: 1;
+}
+#status{
+    padding: 20px;
+    width: 80%;
+    text-align: start;
+    margin-left: 8%;
+     
+ }
+
+#admines {
+    width: min(22vw, 17.625rem); 
     height: auto;
-    max-width: 90vw; /* Evita que ultrapasse a largura da tela */
-    top: 20%;
-    left: 26%;
-    transform: translateX(-50%); /* Mantém ele centralizado dinamicamente */
-    z-index: 10;
+    max-width: 90vw; 
+    z-index: 1;
     flex-wrap: wrap;
+    user-select: none;
 }
 
 
 
 #look{
-    width: 280px;
-    height: 230px;
-    margin-left: 105%;
+    position: absolute;
+    width: 17.5rem;
+    height: 14.375rem;
+    margin-left: 104%;
+    margin-top: 89%;
 }
 
 
 #winamp-container{
     padding: 0;
-    margin-right: -42%;
-    margin-top: -48%;
+    display: flex;
+    position: absolute;
+    top:30%;
+    right: -39%;
     
     
 }
+
+
 #profile{
     width: 150px;
     height: 110px;
