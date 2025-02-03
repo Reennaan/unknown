@@ -190,7 +190,12 @@
     width: 80%;
     height: 240px;
     margin-left: 8%;
-    margin-top: 7%;
+    margin-top: 6%;
+    text-align: start;
+    padding: 10px;
+}
+#something{
+    padding: 10px;
 }
 
 
@@ -209,6 +214,8 @@
     align-items: center;
     opacity: 0;
 }
+
+
 
 
 .snackbar-icon {

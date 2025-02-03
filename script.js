@@ -60,7 +60,7 @@ window.onload = function test(){
     
     
 
-    weekAlbuns();
+    topArtists();
 
 }
 
@@ -74,20 +74,113 @@ function showSnackbar() {
     }, 3000);
 }
 
-async function  weekAlbuns(){
+async function  topArtists(){
   
-  const urlAlbuns = "https://ws.audioscrobbler.com/2.0/?method=user.getweeklyalbumchart&user=Shalashaska-&api_key=0929ed3fd3c3e7b2319317afda26a1cc&format=json"
+  const urlTracks = "https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=Shalashaska-&api_key=0929ed3fd3c3e7b2319317afda26a1cc&format=json&period=7day&limit=5"
+  const lastWeek = document.querySelector("#last-week");
 
-  fetch(urlAlbuns).then(response =>{
+  fetch(urlTracks).then(response =>{
     return response.json();
   }).then(data =>{
-    console.log(data);
+      data.toptracks.track.forEach(track => {
+       
+      
+ 
+       
+       const artist = document.createElement("div");
+       artist.style.display = "flex";
+       artist.style.alignItems = "center";
+       artist.style.fontSize = "15px"
+ 
+       const imgArtist = document.createElement("img");
+       imgArtist.src = track.image.find(img => img.size === "large")["#text"];
+       imgArtist.style.width = "20px";
+       imgArtist.style.height = "20px";
+       imgArtist.style.borderRadius = "50%";
+
+       
+ 
+       const artistText = document.createElement("span");
+       artistText.textContent = track.artist.name;
+ 
+      
+       artist.appendChild(imgArtist);
+       artist.appendChild(artistText);
+ 
+       
+       //lastWeek.appendChild(artist);
+    });;
+    //console.log(artistName);
   }).catch(error =>{
     console.error("deu ruim");
   })
 
+  topAlbums();
+
 }
 
+async function topAlbums(){
+  albumUrl = "https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=Shalashaska-&api_key=0929ed3fd3c3e7b2319317afda26a1cc&format=json&limit=5&period=7day";
+  const lastWeek = document.querySelector("#last-week");
+  
+
+  fetch(albumUrl).then(data =>{
+    return data.json().then(albums =>{
+      albums.topalbums.album.forEach(album =>{
+
+        console.log(album.name)
+        const albumContent = document.createElement("div")
+        albumContent.id = "album-content"
+        albumContent.style.display = "flex"
+        albumContent.alignItems = "center"
+        albumContent.fontSize = "0.9375rem"
+        
+
+
+        const albumImg = document.createElement("img")
+        albumImg.src = album.image.find(img => img.size === "large")["#text"]
+        albumImg.width = 35
+        albumImg.height = 35
+        albumImg.style.padding = "5px"
+        albumImg.borderRadius = "50%"
+
+        console.log(albumImg.src)
+
+        const albumName = document.createElement("span")
+      
+        albumName.style.display = "inline-block";
+        albumName.style.alignContent = "start"
+        albumName.style.padding = "0.3125rem"
+        albumName.style.marginTop = "0.3125rem"
+
+        
+        
+        if(album.name.length <= 29){
+          
+          albumName.textContent = album.name
+          albumContent.appendChild(albumImg)
+          
+          albumContent.appendChild(albumName)
+          
+          
+        }else{
+          const marquee = document.createElement("marquee")
+          marquee.textContent = album.name
+          marquee.style.width = "12.5rem"
+          marquee.style.marginTop = "0.625rem"
+          albumContent.appendChild(albumImg)
+          albumContent.appendChild(marquee)
+
+        }
+      
+
+        lastWeek.appendChild(albumContent)
+
+        
+      })
+    })
+  })
+}
 
 
 
