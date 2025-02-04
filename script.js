@@ -9,6 +9,9 @@ window.onload = function test(){
     paper.addEventListener("click", () => {
         
         if (isClickable) {
+            const status = document.getElementById("save-game")
+            status.style.color = "green"
+            status.textContent = " Saved"
             const save = new Audio('sounds/save.mp3');
             save.play();
            showSnackbar();
@@ -43,8 +46,8 @@ window.onload = function test(){
         url: "img/Lain_Open_the_Next.wsz"
       },
       initialDimensions: {
-        width: 200,  // Largura da janela
-        height: 150  // Altura da janela
+        width: "200px",  // Largura da janela
+        height: "150px"  // Altura da janela
     }
 
     });
@@ -54,6 +57,14 @@ window.onload = function test(){
       {url: 'sounds/into-the-depths-catacombs.mp3'},
       {url: 'sounds/fallen-down.mp3'},
     ]);
+
+    setTimeout(() => {
+      const skin = document.querySelector("#winamp-container canvas");
+      if (skin) {
+          skin.style.width = "200px";
+          skin.style.height = "auto";
+      }
+  }, 1000);
 
 
 

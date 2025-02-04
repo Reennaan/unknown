@@ -63,7 +63,7 @@
 }
 
 #background{
-    z-index: -1;
+    z-index: -2;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -76,6 +76,24 @@
    
     
 }
+#background2{
+    z-index: -1;
+    background-image: url("img/check.gif");
+    background-repeat: repeat;
+    background-size: auto;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top:0;
+    left: 0;
+
+    user-select: none;
+    pointer-events: none;
+    
+      
+}
+
+
 #overlay {
     position: fixed;
     top: 0;
@@ -196,6 +214,28 @@
 }
 #something{
     padding: 10px;
+}
+#save-game{
+    color: red;
+}
+
+#ad-buttons{
+    position: absolute;
+    width: 15.5rem;
+    height: 13.375rem;
+    margin-left: 104%;
+    margin-top: 91%;
+    padding: 15px;
+    
+}
+#winamp-container {
+    transform: scale(0.8) !important; /* Reduz para 80% do tamanho original */
+    transform-origin: top left !important; /* Mantém a posição fixa no canto superior esquerdo */
+}
+
+#winamp-container canvas {
+    width: 300px !important;
+    height: auto !important;
 }
 
 
