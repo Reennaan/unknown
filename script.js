@@ -153,7 +153,31 @@ async function topAlbums(){
         albumImg.width = 35
         albumImg.height = 35
         albumImg.style.padding = "5px"
-        albumImg.borderRadius = "50%"
+        
+
+        
+        
+        const imgContainer = document.createElement("div")
+        imgContainer.style.position = "relative"
+        imgContainer.style.display = "inline-block"
+        imgContainer.onclick = () =>{
+          window.open(album.url)
+        }
+
+        const arrow = document.createElement("img")
+        arrow.src = "img/setabemmassa.png"
+        arrow.style.position = "absolute"
+        arrow.style.zIndex = 1
+        arrow.width = 10
+        arrow.height= 10
+        arrow.style.bottom = "17%"
+        arrow.style.left = "10%" 
+        imgContainer.appendChild(albumImg)
+        imgContainer.appendChild(arrow)
+        
+
+
+        
 
         console.log(albumImg.src)
 
@@ -169,7 +193,7 @@ async function topAlbums(){
         if(album.name.length <= 29){
           
           albumName.textContent = album.name
-          albumContent.appendChild(albumImg)
+          albumContent.appendChild(imgContainer)
           
           albumContent.appendChild(albumName)
           
@@ -179,7 +203,7 @@ async function topAlbums(){
           marquee.textContent = album.name
           marquee.style.width = "12.5rem"
           marquee.style.marginTop = "0.625rem"
-          albumContent.appendChild(albumImg)
+          albumContent.appendChild(imgContainer)
           albumContent.appendChild(marquee)
 
         }
@@ -187,13 +211,16 @@ async function topAlbums(){
 
         lastWeek.appendChild(albumContent)
 
-        
+        lastMusic();
       })
     })
   })
 }
 
-
+async function lastMusic() {
+  const url = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Shalashaska-&api_key=0929ed3fd3c3e7b2319317afda26a1cc&format=json&limit=1"
+  
+}
 
 
 
