@@ -67,22 +67,7 @@ window.onload = function test(){
   }, 1000);
 
  
-  let gameElement = document.querySelector(".dosbox-overlay");
-  if (gameElement) {
-    
-    document.body.childNodes.forEach(node => {
-        if (node !== gameElement && node.nodeType === 1) {
-            node.remove();
-        }
-    });
-
-    // Garante que o jogo ocupe a tela inteira
-    document.body.style.display = "flex";
-    document.body.style.justifyContent = "center";
-    document.body.style.alignItems = "center";
-    document.body.style.height = "100vh";
-    document.body.style.backgroundColor = "black";
-}
+ 
     
 
     topArtists();
@@ -108,6 +93,25 @@ window.onload = function test(){
       runDoom();
       
     });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const title = document.querySelector('.pixel-title');
+      const originalText = title.textContent;
+      title.textContent = '';
+      
+      let i = 0;
+      function typeWriter() {
+          if (i < originalText.length) {
+              title.textContent += originalText.charAt(i);
+              i++;
+              setTimeout(typeWriter, 100);
+          }
+      }
+      
+      // Inicia a animação de digitação
+      typeWriter();
+  });
 
 
 }
@@ -264,8 +268,6 @@ async function lastMusic() {
   fetch(url).then(data =>{
     return data.json().then(lastsong =>{
       const song = document.getElementById("song")
-      console.log(lastsong.recenttracks.track[0].artist["#text"])
-      console.log(lastsong.recenttracks.track[0].album["#text"])
       song.textContent = `${lastsong.recenttracks.track[0].artist["#text"]} - ${lastsong.recenttracks.track[0].album["#text"]}`
       const link = document.getElementById("link-last-song")
       link.onclick = () =>{
@@ -288,6 +290,9 @@ function runDoom (){
       },
      onrun: function (dosbox, app) {
         console.log("App '" + app + "' is runned");
+        dosbox.stop();
+        console.log("rodou e fechou")
+       
       }
     });
   }
@@ -296,28 +301,11 @@ function runDoom (){
  
 }
 
-function closeGame(){
-  document.getElementById("game-window").style.display = "none"
 
-  let dosboxContainer = document.getElementById("dosbox");
-  if (dosboxContainer) {
-    dosboxContainer.innerHTML = ""; 
-    dosboxContainer.parentNode.removeChild(dosboxContainer);
-  }
-
-  
-  dosbox = null;
-
-  
-  let newDosboxContainer = document.createElement('div');
-  newDosboxContainer.id = "dosbox";
-  document.body.appendChild(newDosboxContainer);
-  
-  
-  
-
+async function closeGame() {
+  //solução paliativa, depois arrumo
+  window.location.reload();
 }
-
 
 
 

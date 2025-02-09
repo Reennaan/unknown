@@ -378,4 +378,194 @@
 }
 
 
+.pixel-title-container {
+    position: absolute;
+    top:2%;
+    left: 33%;
+    padding: 24px 16px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.pixel-title-inner {
+    position: relative;
+    padding: 16px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+}
+
+.pixel-corner {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: rgba(34, 197, 94, 0.6);
+}
+
+.pixel-top-left {
+    top: -4px;
+    left: -4px;
+}
+
+.pixel-top-right {
+    top: -4px;
+    right: -4px;
+}
+
+.pixel-bottom-left {
+    bottom: -4px;
+    left: -4px;
+}
+
+.pixel-bottom-right {
+    bottom: -4px;
+    right: -4px;
+}
+
+.pixel-title {
+    font-family: 'WildBreathOfZelda';
+    font-size: 32px;
+    text-align: center;
+    color: rgb(134, 239, 172);
+    text-shadow: 0 0 3px rgba(34, 197, 94, 0.6);
+    margin: 0;
+    padding: 0;
+    animation: glow 2s ease-in-out infinite;
+}
+
+.pixel-subtitle {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    text-align: center;
+    color: rgba(134, 239, 172, 0.8);
+    margin-top: 8px;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 3px rgba(34, 197, 94, 0.6);
+    }
+    50% {
+        text-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 3px rgba(34, 197, 94, 0.6);
+    }
+}
+
+
+.pixel-title-inner:hover .pixel-corner {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+.pixel-title-inner:hover .pixel-title {
+    letter-spacing: 2px;
+    transition: letter-spacing 0.3s ease;
+}
+
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0.7;
+}
+
+
+.crt-overlay::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        transparent 50%,
+        rgba(0, 0, 0, 0.1) 51%
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    animation: scanlines 1s linear infinite;
+}
+
+
+.crt-overlay::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 16, 16, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    animation: flicker 0.15s infinite;
+}
+
+
+.crt-vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center,
+        transparent 50%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    pointer-events: none;
+}
+
+
+@keyframes scanlines {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(4px);
+    }
+}
+
+
+@keyframes flicker {
+    0% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.1;
+    }
+}
+
+
+.chromatic-aberration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    opacity: 0.1;
+}
+
+.chromatic-aberration::before,
+.chromatic-aberration::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
