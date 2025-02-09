@@ -569,3 +569,14 @@
     height: 100%;
 }
 
+.chromatic-aberration::before {
+    background: #f00;
+    transform: translate(-2px, 0);
+    mix-blend-mode: screen;
+}
+
+.chromatic-aberration::after {
+    background: #0ff;
+    transform: translate(2px, 0);
+    mix-blend-mode: screen;
+}
