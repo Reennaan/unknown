@@ -46,8 +46,8 @@ window.onload = function test(){
         url: "img/Lain_Open_the_Next.wsz"
       },
       initialDimensions: {
-        width: "200px",  // Largura da janela
-        height: "150px"  // Altura da janela
+        width: "12.5rem",  
+        height: "9.375rem"  
     }
 
     });
@@ -66,12 +66,49 @@ window.onload = function test(){
       }
   }, 1000);
 
-
-
+ 
+  let gameElement = document.querySelector(".dosbox-overlay");
+  if (gameElement) {
     
+    document.body.childNodes.forEach(node => {
+        if (node !== gameElement && node.nodeType === 1) {
+            node.remove();
+        }
+    });
+
+    // Garante que o jogo ocupe a tela inteira
+    document.body.style.display = "flex";
+    document.body.style.justifyContent = "center";
+    document.body.style.alignItems = "center";
+    document.body.style.height = "100vh";
+    document.body.style.backgroundColor = "black";
+}
     
 
     topArtists();
+    const icon = document.getElementById("doomicon-container");
+
+    icon.addEventListener("click", (event) => {
+      event.stopPropagation();
+  
+      
+      document.querySelectorAll(".selected").forEach(el => el.classList.remove("selected"));
+  
+      
+      icon.classList.add("selected");
+    });
+  
+   
+    document.addEventListener("click", () => {
+      icon.classList.remove("selected");
+    });
+
+    icon.addEventListener("dblclick", () => {
+      document.getElementById("game-window").style.display = "block"
+      runDoom();
+      
+    });
+
 
 }
 
@@ -139,7 +176,7 @@ async function topAlbums(){
     return data.json().then(albums =>{
       albums.topalbums.album.forEach(album =>{
 
-        console.log(album.name)
+        
         const albumContent = document.createElement("div")
         albumContent.id = "album-content"
         albumContent.style.display = "flex"
@@ -163,6 +200,7 @@ async function topAlbums(){
         imgContainer.onclick = () =>{
           window.open(album.url)
         }
+        imgContainer.style.cursor = "pointer"
 
         const arrow = document.createElement("img")
         arrow.src = "img/setabemmassa.png"
@@ -179,7 +217,7 @@ async function topAlbums(){
 
         
 
-        console.log(albumImg.src)
+        
 
         const albumName = document.createElement("span")
       
@@ -211,16 +249,76 @@ async function topAlbums(){
 
         lastWeek.appendChild(albumContent)
 
-        lastMusic();
+        
+        
       })
     })
   })
+  lastMusic();
+  
 }
 
 async function lastMusic() {
   const url = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Shalashaska-&api_key=0929ed3fd3c3e7b2319317afda26a1cc&format=json&limit=1"
   
+  fetch(url).then(data =>{
+    return data.json().then(lastsong =>{
+      const song = document.getElementById("song")
+      console.log(lastsong.recenttracks.track[0].artist["#text"])
+      console.log(lastsong.recenttracks.track[0].album["#text"])
+      song.textContent = `${lastsong.recenttracks.track[0].artist["#text"]} - ${lastsong.recenttracks.track[0].album["#text"]}`
+      const link = document.getElementById("link-last-song")
+      link.onclick = () =>{
+        window.open(lastsong.recenttracks.track[0].url)
+      }
+      link.style.cursor = "pointer"
+    })
+  } )
+
+
 }
+var dosbox = null
+
+function runDoom (){
+  if(!dosbox){
+      dosbox = new Dosbox({
+      id: "dosbox",
+      onload: function (dosbox) {
+        dosbox.run("https://js-dos.com/cdn/upload/DOOM-@evilution.zip","./DOOM/DOOM.EXE");
+      },
+     onrun: function (dosbox, app) {
+        console.log("App '" + app + "' is runned");
+      }
+    });
+  }
+
+
+ 
+}
+
+function closeGame(){
+  document.getElementById("game-window").style.display = "none"
+
+  let dosboxContainer = document.getElementById("dosbox");
+  if (dosboxContainer) {
+    dosboxContainer.innerHTML = ""; 
+    dosboxContainer.parentNode.removeChild(dosboxContainer);
+  }
+
+  
+  dosbox = null;
+
+  
+  let newDosboxContainer = document.createElement('div');
+  newDosboxContainer.id = "dosbox";
+  document.body.appendChild(newDosboxContainer);
+  
+  
+  
+
+}
+
+
 
 
 

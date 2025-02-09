@@ -15,6 +15,14 @@
     </video>
   
     <div id="background2"></div>
+    <div id="doomicon-container">
+      <div id="icon-warapper">
+        <img id ="doom-icon" src="img/doomicon.png" alt="" style="width: 50px; height: 50px;">
+
+      </div>
+
+      <p style="color: white; padding:3px;">DOOM</p>
+    </div>
     
     
     
@@ -47,9 +55,13 @@
           <div id="status" class="content-style">
             <p id="reading"><strong>Reading:</strong> Silent Hill 2</p>
             <p id="playing"><strong>Playing:</strong> Final Fantasy VII Reb</p>
-            <p id="coding"><strong>Coding on:</strong> it</p>
+            <div id="link-last-song" style="display: flex;">
+              <p id="last-song" style="white-space: nowrap;"><strong>Last Song:</strong>&nbsp</p>
+              <marquee id="song" style="white-space: nowrap;"></marquee>
+          </div>
+            
             <div style="display: flex;">
-              <p id="save"><strong>Save:</strong> </p><p id="save-game"> <strong> not saved yet</strong></p>
+              <p id="save"><strong>Save:</strong>&nbsp </p><p id="save-game"> <strong>not saved yet</strong></p>
             </div>
             
           </div>
@@ -64,6 +76,9 @@
           <p style="text-align: start;">
             me send-me a fax!! <img src="img/mail.gif"></img>
             
+           
+
+
           </p>
           <img src="img/chicken-ani.gif" alt="" srcset="">
           <img src="img/flamingline.gif" alt="" srcset="">
@@ -136,7 +151,7 @@
           </div>
           </div></center>
           <center><div class="window-body"></div></center>
-          <pre style="font-family: var(--font-primary);">Cool Sites:
+          <pre style="font-family: var(--font-primary);">Slightly suspicious sites:
             <iframe width="180" height="180" style="border:none" src="https://dimden.neocities.org/navlink/" name="neolink" id="nav-link"></iframe>
           </pre>
           <center>
@@ -144,15 +159,35 @@
           </center></div>
 
 
-       
+          
       </div>
       
+
+      
+    </div>
+
+    <div id="game-window" class="windowtxt" style="display: none;">
+
+
+      <center><div class="title-bartxt">
+        <div class="title-bar-text">Doom.exe</div>
+        <div class="title-bar-controls">
+       
+        <button class="close"aria-label="Close" onclick="closeGame()"></button>
+        </div>
+        </div></center>
+        <center><div id="game-window-body" class="window-body"></div></center>
+        <div id="dosbox"></div>
+        <center>
+        <p></p>
+        </center></div>
       
     </div>
     
     
-
+     
     <script src="script.js"></script>   
+    <script type="text/javascript" src="https://js-dos.com/cdn/js-dos-api.js"></script>
     <script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
   </body>
   
