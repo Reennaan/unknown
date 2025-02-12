@@ -395,33 +395,20 @@
     border: 1px solid rgba(34, 197, 94, 0.2);
     border-radius: 4px;
     backdrop-filter: blur(4px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.pixel-corner {
+#titlebackgroud{
+    display: flex;
     position: absolute;
-    width: 8px;
-    height: 8px;
-    background-color: rgba(34, 197, 94, 0.6);
-}
-
-.pixel-top-left {
-    top: -4px;
-    left: -4px;
-}
-
-.pixel-top-right {
-    top: -4px;
-    right: -4px;
-}
-
-.pixel-bottom-left {
-    bottom: -4px;
-    left: -4px;
-}
-
-.pixel-bottom-right {
-    bottom: -4px;
-    right: -4px;
+    width: 530px;
+    height: 100px;
+    object-fit: cover;
+    z-index: -1;
 }
 
 .pixel-title {
@@ -433,6 +420,8 @@
     margin: 0;
     padding: 0;
     animation: glow 2s ease-in-out infinite;
+    z-index: 3;
+    position: relative;
 }
 
 .pixel-subtitle {
@@ -441,6 +430,8 @@
     text-align: center;
     color: rgba(134, 239, 172, 0.8);
     margin-top: 8px;
+    z-index: 3;
+    position: relative;
 }
 
 @keyframes glow {
@@ -456,15 +447,7 @@
 }
 
 
-.pixel-title-inner:hover .pixel-corner {
-    transform: scale(1.2);
-    transition: transform 0.3s ease;
-}
 
-.pixel-title-inner:hover .pixel-title {
-    letter-spacing: 2px;
-    transition: letter-spacing 0.3s ease;
-}
 
 .crt-overlay {
     position: fixed;
@@ -547,16 +530,14 @@
     }
 }
 
-
 .chromatic-aberration {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    mix-blend-mode: screen;
     pointer-events: none;
-    opacity: 0.1;
+    z-index: 9998;
 }
 
 .chromatic-aberration::before,
@@ -567,16 +548,46 @@
     left: 0;
     width: 100%;
     height: 100%;
+    background: inherit;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.15; /* Mantém o efeito sutil */
 }
 
 .chromatic-aberration::before {
-    background: #f00;
-    transform: translate(-2px, 0);
-    mix-blend-mode: screen;
+    transform: translateX(-1px);
+    filter: contrast(1.1) brightness(1.1) drop-shadow(-1px 0px 0px red);
 }
 
 .chromatic-aberration::after {
-    background: #0ff;
-    transform: translate(2px, 0);
-    mix-blend-mode: screen;
+    transform: translateX(1px);
+    filter: contrast(1.1) brightness(1.1) drop-shadow(1px 0px 0px blue);
 }
+
+@keyframes chromatic-shift {
+    0% {
+        transform: translateX(-0.7px);
+    }
+    100% {
+        transform: translateX(0.7px);
+    }
+}
+
+.chromatic-aberration::before,
+.chromatic-aberration::after {
+    animation: chromatic-shift 2s infinite ease-in-out alternate;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 2px #00ffea, -2px -2px #f5eee4; }
+    25% { text-shadow: -2px -2px #00ffea, 2px 2px #f5eee4; }
+    50% { text-shadow: 4px 4px #00ffea, -4px -4px #f5eee4; }
+    75% { text-shadow: -4px -4px #00ffea, 4px 4px #f5eee4; }
+    100% { text-shadow: 2px 2px #00ffea, -2px -2px #f5eee4; }
+}
+
+
+
+
+
+
