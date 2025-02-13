@@ -586,7 +586,18 @@
     100% { text-shadow: 2px 2px #00ffea, -2px -2px #f5eee4; }
 }
 
+@keyframes rpgGlow {
+    0% { color: #ff0000; text-shadow: 0 0 5px #ff0000; }
+    25% { color: #ff7f00; text-shadow: 0 0 10px #ff7f00; }
+    50% { color: #9900ff; text-shadow: 0 0 15px #9900ff; }
+    75% { color: #00ff00; text-shadow: 0 0 10px #00ff00; }
+    100% { color: #ff0000; text-shadow: 0 0 5px #ff0000; }
+}
 
+.rpg-highlight {
+    font-weight: bold;
+    animation: rpgGlow 2s infinite alternate;
+}
 
 
 
