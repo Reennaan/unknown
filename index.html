@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self' *.neocities.org">
     <title>hiddenwoods.zip</title>
     <link rel="stylesheet" href="style.css">
     
@@ -10,9 +11,9 @@
 </head>
 <body>
   
-    <video autoplay muted loop id="background">
-      <source src="img/background.mp4" type="video/mp4">
-    </video>
+    
+    <img id ="background" src="img/background.gif">
+    
   
     
 
@@ -104,8 +105,8 @@
           <div class="pixel-title-inner">
             <h1 class="pixel-title">hiddenwoods.zip</h1>
             <p class="pixel-subtitle">~beware of the millennium bug~</p>
-            <video  id="titlebackgroud" autoplay muted loop src="img/titlebackgroud.mp4">
-            </video>
+            <img id="titlebackgroud"  src="img/titlebackgroud.gif">
+            
           </div> 
       </div>
   
@@ -195,22 +196,19 @@
 
         <div class="windowtxt">
           <center><div class="title-bartxt">
-          <div class="title-bar-text">advertisements.txt</div>
-          <div class="title-bar-controls">
-         
-          <button class="close"aria-label="Close"></button>
-          </div>
-          </div></center>
+            <div class="title-bar-text">advertisements.txt</div>
+            <div class="title-bar-controls">
+          
+            <button class="close"aria-label="Close"></button>
+            </div>
+            </div>
+          </center>
+
           <center><div class="window-body"></div></center>
           <pre style="font-family: var(--font-primary);">Slightly suspicious sites:
-            <iframe width="180" height="180" style="border:none" src="https://dimden.neocities.org/navlink/" name="neolink" id="nav-link"></iframe>
+            <iframe width="180" height="180" style="border:none" src="https://dimden.neocities.org/navlink/" name="neolink" id="nav-link" sandbox="allow-same-origin allow-scripts"></iframe>></iframe>
           </pre>
-          <center>
-          <p></p>
-          </center></div>
-
-
-          
+          </div>   
       </div>
       
 

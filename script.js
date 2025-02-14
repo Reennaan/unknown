@@ -50,11 +50,15 @@ window.onload = function test(){
   
     });
     
-    webamp.renderWhenReady(document.getElementById('winamp-container'));
+    webamp.renderWhenReady(document.getElementById('winamp-container'))
+    
+    
     webamp.appendTracks([
       {url: 'sounds/into-the-depths-catacombs.mp3'},
       {url: 'sounds/fallen-down.mp3'},
     ]);
+
+    
 
     
 
