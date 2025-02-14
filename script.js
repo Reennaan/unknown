@@ -31,6 +31,8 @@ window.onload = function test(){
     
     const webamp = new Webamp({
       
+      
+
       initialTracks: [{
         metaData: {
           artist: "Final Fantasy IX",
@@ -43,13 +45,9 @@ window.onload = function test(){
         url: "sounds/fairy-battle.mp3"
       }],
       initialSkin: {
-        url: "img/Lain_Open_the_Next.wsz"
+        url: "img/reiayanami_winskin.wsz"
       },
-      initialDimensions: {
-        width: "12.5rem",  
-        height: "9.375rem"  
-    }
-
+  
     });
     
     webamp.renderWhenReady(document.getElementById('winamp-container'));
@@ -58,13 +56,7 @@ window.onload = function test(){
       {url: 'sounds/fallen-down.mp3'},
     ]);
 
-    setTimeout(() => {
-      const skin = document.querySelector("#winamp-container canvas");
-      if (skin) {
-          skin.style.width = "200px";
-          skin.style.height = "auto";
-      }
-  }, 1000);
+    
 
  
  

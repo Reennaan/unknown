@@ -130,7 +130,6 @@
     position: absolute;
     top:0;
     left: 0;
-
     user-select: none;
     pointer-events: none;
     
@@ -138,29 +137,12 @@
 }
 
 
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.363); 
-    z-index: 0; 
-    display: block; 
-}
-
 
 #sumary{
     height: 15rem;
     text-align: start;
     padding: 1.25rem;
     font-weight: bold;
-}
-
-
-
-#me{
-    width: 9.375rem;
 }
 
 
@@ -193,7 +175,7 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    top: -4%;
+    top: -3%;
     right: 90%;
     width: min(40vw, 25rem);
     height: auto; 
@@ -203,41 +185,34 @@
     z-index: 1;
 }
 #status{
-    padding: 20px;
+    padding: 23px;
     width: 80%;
     text-align: start;
     margin-left: 8%;
+    
      
  }
 
-#admines {
-    width: min(22vw, 17.625rem); 
-    height: auto;
-    max-width: 90vw; 
-    z-index: 1;
-    flex-wrap: wrap;
-    user-select: none;
-}
 
 
-
-#look{
-    position: absolute;
-    width: 17.5rem;
-    height: 14.375rem;
-    margin-left: 104%;
-    margin-top: 89%;
-}
 
 
 #winamp-container{
     padding: 0;
     display: flex;
     position: absolute;
-    top:30%;
+    top:25%;
     right: -39%;
-    
-    
+     
+}
+#winamp-txt{
+    width: auto;
+    position: absolute;
+    z-index: 1;
+    color: white;
+    left: 175%;
+    bottom: 83%; 
+    white-space: nowrap;
 }
 
 
@@ -259,6 +234,16 @@
 #something{
     padding: 0.625rem;
 }
+
+#welcome-container{
+    display: flex;
+    flex-direction: row;
+    width: 25rem;
+    padding: 8px;
+}
+
+
+
 #save-game{
     color: red;
 }
@@ -332,15 +317,14 @@
 }
 
 #xpad{
-    width: 25rem;
+    width: 80px;
+    margin: auto;
 }
 
 .dosbox-container { 
     width: 40rem; height: 25rem; 
     position: absolute;
-    
-    
-  
+
 }
 #game-window{
     position: absolute;
@@ -390,11 +374,11 @@
 
 .pixel-title-inner {
     position: relative;
-    padding: 16px;
+    padding: 1rem;
     background-color: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(34, 197, 94, 0.2);
+    border: 0.0625rem solid rgba(34, 197, 94, 0.2);
     border-radius: 4px;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(0.25rem);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -405,15 +389,15 @@
 #titlebackgroud{
     display: flex;
     position: absolute;
-    width: 530px;
-    height: 100px;
+    width: 33.125rem;
+    height: 6.25rem;
     object-fit: cover;
     z-index: -1;
 }
 
 .pixel-title {
     font-family: 'WildBreathOfZelda';
-    font-size: 32px;
+    font-size: 2.8125rem;
     text-align: center;
     color: rgb(134, 239, 172);
     text-shadow: 0 0 3px rgba(34, 197, 94, 0.6);
@@ -429,7 +413,7 @@
     font-size: 12px;
     text-align: center;
     color: rgba(134, 239, 172, 0.8);
-    margin-top: 8px;
+    margin-top: 0.5rem;
     z-index: 3;
     position: relative;
 }
@@ -473,7 +457,7 @@
         transparent 50%,
         rgba(0, 0, 0, 0.1) 51%
     );
-    background-size: 100% 4px;
+    background-size: 100% 0.25rem;
     pointer-events: none;
     animation: scanlines 1s linear infinite;
 }
@@ -599,6 +583,30 @@
     animation: rpgGlow 2s infinite alternate;
 }
 
+
+
+
+.welcome {
+    display: flex;
+    font-size: 3rem;
+    text-shadow: 3px 3px magenta, -3px -3px cyan;
+    animation: glitchtext 0.2s infinite alternate, flickertext 1.5s infinite;
+    z-index: 1;
+}
+
+@keyframes glitchtext {
+    0% { text-shadow: 2px 2px magenta, -2px -2px cyan; }
+    25% { text-shadow: -3px 3px magenta, 3px -3px cyan; }
+    50% { text-shadow: 3px -3px magenta, -3px 3px cyan; }
+    75% { text-shadow: -2px -2px magenta, 2px 2px cyan; }
+    100% { text-shadow: 2px -2px magenta, -2px 2px cyan; }
+}
+
+@keyframes flickertext {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
 
 
 
