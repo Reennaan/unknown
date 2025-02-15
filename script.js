@@ -64,7 +64,7 @@ window.onload = function test(){
 
  
  
-    
+    getNavlink();
 
     topArtists();
     const icon = document.getElementById("doomicon-container");
@@ -111,6 +111,15 @@ window.onload = function test(){
 
 
 }
+
+function getNavlink(){
+  fetch("https://dimden.neocities.org/navlink/")
+  .then(response => response.text())
+  .then(navlink =>{
+    document.getElementById("nav-link").innerHTML = navlink;
+  })
+}
+
 
 
 function showSnackbar() {
