@@ -58,13 +58,6 @@ window.onload = function test(){
       {url: 'sounds/fallen-down.mp3'},
     ]);
 
-    
-
-    
-
- 
- 
-    getNavlink();
 
     topArtists();
     const icon = document.getElementById("doomicon-container");
@@ -112,13 +105,7 @@ window.onload = function test(){
 
 }
 
-function getNavlink(){
-  fetch("./navlink.html")
-  .then(response => response.text())
-  .then(navlink =>{
-    document.getElementById("nav-link").innerHTML = navlink;
-  })
-}
+
 
 
 
