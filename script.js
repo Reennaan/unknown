@@ -113,7 +113,7 @@ window.onload = function test(){
 }
 
 function getNavlink(){
-  fetch("https://dimden.neocities.org/navlink/")
+  fetch("./navlink.html")
   .then(response => response.text())
   .then(navlink =>{
     document.getElementById("nav-link").innerHTML = navlink;
