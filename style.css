@@ -348,8 +348,8 @@
 }
 #game-window{
     position: absolute;
-    top:30%;
-    left: 30%;
+    top:15%;
+    right: -23%;
     z-index: 2;
     width: 645px;
     height: 428px;
