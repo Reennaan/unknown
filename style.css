@@ -351,9 +351,11 @@
 
 }
 #game-window{
-    position: absolute;
-    top:15%;
-    right: -23%;
+    position: relative;
+    
+    left: -190%;
+    top:-195%;
+    
     z-index: 2;
     width: 645px;
     height: 428px;
