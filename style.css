@@ -562,7 +562,7 @@
     background: inherit;
     pointer-events: none;
     mix-blend-mode: screen;
-    opacity: 0.15; /* Mantém o efeito sutil */
+    opacity: 0.15;
 }
 
 .chromatic-aberration::before {
@@ -637,6 +637,6 @@
 
 
 #main-window {
-    width: 500px; /* Ajuste para o tamanho desejado */
-    height: 400px; /* Ajuste para o tamanho desejado */
+    width: 500px;
+    height: 400px; 
 }

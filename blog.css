@@ -1,0 +1,81 @@
+:root {
+    font-size: 24px;
+    min-height: 100vh;
+    --c-baseplate: hsl(108, 20%, 5%);
+    --c-sur: #10140f;
+    --c-sur-ctr: #1c211b;
+    --c-on-sur: #e0e4db;
+    --c-pri: #a0d49b;
+    --font-primary: "RussianGothic", "MS UI Gothic", "NEC_APC3", Tahoma;
+   
+}
+.root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    display: block;
+    unicode-bidi: isolate;
+    font-family: var(--font-primary);
+    font-weight: 800;
+    text-align: center;
+    font-size: 28pt;
+    text-decoration: none;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    color: var(--c-pri);
+}
+
+html{
+    display: block;
+}
+
+
+body {
+    animation: backgroundScroll 80s linear infinite;
+    background: #000;
+    background-image: url("img/ezgif-com-effects-2.gif");
+    background-attachment: fixed;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: var(--font-primary);
+}
+
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.content-wrapper {
+    background-color: var(--c-sur);
+    color: var(--c-on-sur);
+    display: flow-root;
+    flex: 1 0 auto;
+    padding: 0 32px;
+}
+main {
+    display: block;
+    unicode-bidi: isolate;
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    position: relative;
+    flex: 1 0 auto;
+}
+
