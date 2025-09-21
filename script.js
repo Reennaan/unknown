@@ -292,6 +292,10 @@ function runDoom (){
 
  
 }
+function redirect(element){
+  window.location.href = element.href;
+  
+}
 
 
 async function closeGame() {
