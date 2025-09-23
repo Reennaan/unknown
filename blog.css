@@ -118,3 +118,32 @@ main {
     filter: blur(5px);
     user-select: none;
 }
+
+.hiscivilization{
+    position: fixed;
+    bottom: 65%;
+    width: 5%;
+    height: 300px;
+    left: 8%;
+    background-color:var(--c-on-sur);
+    display: block;
+    padding-top: 30px;
+    padding-left: 15px;
+    border-radius: 10px;
+    rotate: 270deg;
+}
+.circle{
+    
+    width: 30px;
+    height: 30px;
+    background-color: #0c0c0c;
+    border-radius: 50%;
+
+}
+.menu{
+    font-family: 'Times New Roman', Times, serif;
+    color: #0c0c0c;
+    position: absolute;
+    bottom: 60%;
+    rotate: 90deg;
+}
