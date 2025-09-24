@@ -176,3 +176,43 @@ main {
     bottom: 60%;
     rotate: 90deg;
 }
+
+.ero-guro-container {
+     
+    align-items: flex-start;
+    padding: 10px;   
+  
+}
+.ero-introduction {
+  text-align: justify;
+  display: block;
+ 
+}
+
+.ero-guro-container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.ero-img1{
+    float: left;
+    width:30%; 
+    padding: 2%; 
+    margin-top: 3%; 
+    float:left; 
+    display: block;
+}
+
+.ero-img2{
+    float: left;
+    width:50%; 
+    padding: 1%; 
+     
+    float:left; 
+    display: block;
+}
+.ero-showa{
+  text-align: justify;
+  display: block;
+   
+}
