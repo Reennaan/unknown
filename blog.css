@@ -160,6 +160,7 @@ main {
     padding-left: 15px;
     border-radius: 10px;
     rotate: 270deg;
+    display: none;
 }
 .circle{
     
