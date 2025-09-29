@@ -208,7 +208,6 @@ main {
     float: left;
     width:50%; 
     padding: 1%; 
-     
     float:left; 
     display: block;
 }
@@ -217,6 +216,15 @@ main {
   display: block;
    
 }
+
+.ero-img4{
+    float: left;
+    width:40%; 
+    padding: 1%;  
+    float:left; 
+    display: block;
+}
+
 
 figcaption {
   font-size: 0.75rem;  
