@@ -225,6 +225,14 @@ main {
     display: block;
 }
 
+.ero-img5{
+    float: left;
+    width:40%; 
+    padding: 1%;  
+    float:left; 
+    display: block;
+}
+
 
 figcaption {
   font-size: 0.75rem;  
